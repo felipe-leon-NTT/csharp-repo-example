@@ -16,14 +16,19 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Add msbuild to PATH
-      uses: microsoft/setup-msbuild@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '6.0.x'
 
     - name: Restore dependencies
-      run: msbuild /t:Restore
+      run: dotnet restore
 
     - name: Build
-      run: msbuild /p:Configuration=Release
+      run: dotnet msbuild /p:Configuration=Release
+
+    - name: Test
+      run: dotnet test --logger "trx;LogFileName=$(pwd)/TestResults/test-results.trx"
 
     - name: Test
       run: msbuild /t:Test /p:CollectCoverage=true /p:CoverletOutputFormat=trx /p:CoverletOutput=$(pwd)/TestResults/test-results.trx
