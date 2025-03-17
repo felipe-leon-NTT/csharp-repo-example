@@ -3,6 +3,7 @@
 
 **Repo layout**
 
+```
 MyProject/
 ├── .github/
 │   └── workflows/
@@ -11,3 +12,4 @@ MyProject/
 ├── Program.cs
 └── Tests/
     └── ProductoTests.cs
+```
