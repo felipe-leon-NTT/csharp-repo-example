@@ -30,7 +30,9 @@ jobs:
     - name: Test
       run: dotnet test --no-build --logger "trx;LogFileName=$(pwd)/TestResults/test-results.trx"
 
-    - run: ls -l
+    - run: ls -
+    
+    - run: ls -l Tests
 
     - name: Publish Test Results
       if: always()
