@@ -7,7 +7,8 @@
 MyProject/
 ├── .github/
 │   └── workflows/
-│       └── ci.yml
+│       └── ci-dotnet.yaml
+│       └── ci-msbuild.yaml
 ├── MyProject.csproj
 ├── Program.cs
 └── Tests/
